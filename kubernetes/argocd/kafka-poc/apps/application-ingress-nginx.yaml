@@ -12,12 +12,15 @@ spec:
     repoURL: git@github.com:andrekloster/confluent-test.git
     targetRevision: main
     path: kubernetes/apps/kafka-poc/ingress-nginx
-    helm:
-      valueFiles:
-        - values.yaml
+    #helm:
+    #  valueFiles:
+    #    - values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: ingress-nginx
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
