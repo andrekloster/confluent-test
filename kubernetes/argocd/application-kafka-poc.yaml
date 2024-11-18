@@ -1,0 +1,17 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kafka-poc
+  namespace: argocd
+spec:
+  project: kafka-poc
+  syncPolicy:
+    automated: {}
+  source:
+    repoURL: git@github.com:andrekloster/confluent-test.git
+    targetRevision: main
+    path: kubernetes/argocd/kafka-poc/apps
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
