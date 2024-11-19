@@ -14,8 +14,8 @@ spec:
     path: kubernetes/apps/kafka-poc/confluent-operator
     helm:
       releaseName: confluent-operator
-    #  valueFiles:
-    #    - values.yaml
+      valueFiles:
+        - values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: confluent
