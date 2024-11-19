@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ingress-nginx
+  name: confluent-for-kubernetes
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
@@ -11,13 +11,13 @@ spec:
   source:
     repoURL: git@github.com:andrekloster/confluent-test.git
     targetRevision: main
-    path: kubernetes/apps/kafka-poc/ingress-nginx
+    path: kubernetes/apps/kafka-poc/confluent-for-kubernetes
     #helm:
     #  valueFiles:
     #    - values.yaml
   destination:
     server: https://kubernetes.default.svc
-    namespace: ingress-nginx
+    namespace: confluent
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
