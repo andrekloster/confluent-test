@@ -1,0 +1,12 @@
+---
+apiVersion: platform.confluent.io/v1beta1
+kind: KsqlDB
+metadata:
+  name: {{ .Values.confluent.ksqlDB.name }}
+  namespace: {{ .Values.confluent.namespace }}
+spec:
+  replicas: {{ .Values.confluent.ksqlDB.replicas }}
+  image:
+    application: {{ .Values.confluent.ksqlDB.image.application }}
+    init: {{ .Values.confluent.ksqlDB.image.init }}
+  dataVolumeCapacity: {{ .Values.confluent.ksqlDB.dataVolumeCapacity }}

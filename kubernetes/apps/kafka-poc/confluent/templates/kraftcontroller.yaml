@@ -1,0 +1,12 @@
+---
+apiVersion: platform.confluent.io/v1beta1
+kind: KRaftController
+metadata:
+  name: {{ .Values.confluent.kraftController.name }}
+  namespace: {{ .Values.confluent.namespace }}
+spec:
+  dataVolumeCapacity: {{ .Values.confluent.kraftController.dataVolumeCapacity }}
+  image:
+    application: {{ .Values.confluent.kraftController.image.application }}
+    init: {{ .Values.confluent.kraftController.image.init }}
+  replicas: {{ .Values.confluent.kraftController.replicas }}

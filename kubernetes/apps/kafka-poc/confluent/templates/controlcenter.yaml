@@ -1,0 +1,25 @@
+---
+apiVersion: platform.confluent.io/v1beta1
+kind: ControlCenter
+metadata:
+  name: {{ .Values.controlcenter.name }}
+  namespace: {{ .Values.confluent.namespace }}
+spec:
+  replicas: {{ .Values.controlcenter.replicas }}
+  image:
+    application: {{ .Values.controlcenter.image.application }}
+    init: {{ .Values.controlcenter.image.init }}
+  dataVolumeCapacity: {{ .Values.controlcenter.dataVolumeCapacity }}
+  dependencies:
+    schemaRegistry:
+      url: {{ .Values.controlcenter.dependencies.schemaRegistry.url }}
+    ksqldb:
+    {{- range .Values.controlcenter.dependencies.ksqldb }}
+      - name: {{ .name }}
+        url: {{ .url }}
+    {{- end }}
+    connect:
+    {{- range .Values.controlcenter.dependencies.connect }}
+      - name: {{ .name }}
+        url: {{ .url }}
+    {{- end }}

@@ -1,0 +1,16 @@
+---
+apiVersion: platform.confluent.io/v1beta1
+kind: Kafka
+metadata:
+  name: {{ .Values.confluent.kafka.name }}
+  namespace: {{ .Values.confluent.namespace }}
+spec:
+  replicas: {{ .Values.confluent.kafka.replicas }}
+  image:
+    application: {{ .Values.confluent.kafka.image.application }}
+    init: {{ .Values.confluent.kafka.image.init }}
+  dataVolumeCapacity: {{ .Values.confluent.kafka.dataVolumeCapacity }}
+  dependencies:
+    kRaftController:
+      clusterRef:
+        name: {{ .Values.confluent.kafka.dependencies.kRaftController.clusterRef.name }}

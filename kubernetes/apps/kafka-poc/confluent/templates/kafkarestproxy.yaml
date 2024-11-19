@@ -1,0 +1,14 @@
+---
+apiVersion: platform.confluent.io/v1beta1
+kind: KafkaRestProxy
+metadata:
+  name: {{ .Values.confluent.kafkaRestProxy.name }}
+  namespace: {{ .Values.confluent.namespace }}
+spec:
+  replicas: {{ .Values.confluent.kafkaRestProxy.replicas }}
+  image:
+    application: {{ .Values.confluent.kafkaRestProxy.image.application }}
+    init: {{ .Values.confluent.kafkaRestProxy.image.init }}
+  dependencies:
+    schemaRegistry:
+      url: {{ .Values.confluent.kafkaRestProxy.dependencies.schemaRegistry.url }}

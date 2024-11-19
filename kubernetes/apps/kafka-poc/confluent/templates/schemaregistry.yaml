@@ -1,0 +1,11 @@
+---
+apiVersion: platform.confluent.io/v1beta1
+kind: SchemaRegistry
+metadata:
+  name: {{ .Values.confluent.schemaRegistry.name }}
+  namespace: {{ .Values.confluent.namespace }}
+spec:
+  replicas: {{ .Values.confluent.schemaRegistry.replicas }}
+  image:
+    application: {{ .Values.confluent.schemaRegistry.image.application }}
+    init: {{ .Values.confluent.schemaRegistry.image.init }}
