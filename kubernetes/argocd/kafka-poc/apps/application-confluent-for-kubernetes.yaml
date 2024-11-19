@@ -12,7 +12,8 @@ spec:
     repoURL: git@github.com:andrekloster/confluent-test.git
     targetRevision: main
     path: kubernetes/apps/kafka-poc/confluent-for-kubernetes
-    #helm:
+    helm:
+      releaseName: confluent-operator
     #  valueFiles:
     #    - values.yaml
   destination:
