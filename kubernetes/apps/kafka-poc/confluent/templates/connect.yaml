@@ -2,13 +2,13 @@
 apiVersion: platform.confluent.io/v1beta1
 kind: Connect
 metadata:
-  name: {{ .Values.connect.name }}
+  name: {{ .Values.confluent.connect.name }}
   namespace: {{ .Values.confluent.namespace }}
 spec:
-  replicas: {{ .Values.connect.replicas }}
+  replicas: {{ .Values.confluent.connect.replicas }}
   image:
-    application: {{ .Values.connect.image.application }}
-    init: {{ .Values.connect.image.init }}
+    application: {{ .Values.confluent.connect.image.application }}
+    init: {{ .Values.confluent.connect.image.init }}
   dependencies:
     kafka:
-      bootstrapEndpoint: {{ .Values.connect.dependencies.kafka.bootstrapEndpoint }}
+      bootstrapEndpoint: {{ .Values.confluent.connect.dependencies.kafka.bootstrapEndpoint }}
