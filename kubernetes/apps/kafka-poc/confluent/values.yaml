@@ -1,7 +1,7 @@
 ---
 confluent:
   namespace: confluent
-  imagePullSecretRef: harbor-secret
+  pullSecretRef: harbor-secret
   connect:
     name: connect
     replicas: 1
