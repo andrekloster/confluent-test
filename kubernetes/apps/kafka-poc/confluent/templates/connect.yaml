@@ -9,6 +9,8 @@ spec:
   image:
     application: {{ .Values.confluent.connect.image.application }}
     init: {{ .Values.confluent.connect.image.init }}
+    pullSecretRef:
+      - {{ .Values.confluent.pullSecretRef }}
   dependencies:
     kafka:
       bootstrapEndpoint: {{ .Values.confluent.connect.dependencies.kafka.bootstrapEndpoint }}

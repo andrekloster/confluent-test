@@ -9,3 +9,5 @@ spec:
   image:
     application: {{ .Values.confluent.schemaRegistry.image.application }}
     init: {{ .Values.confluent.schemaRegistry.image.init }}
+    pullSecretRef:
+      - {{ .Values.confluent.pullSecretRef }}

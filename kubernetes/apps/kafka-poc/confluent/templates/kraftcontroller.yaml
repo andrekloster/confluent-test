@@ -9,4 +9,6 @@ spec:
   image:
     application: {{ .Values.confluent.kraftController.image.application }}
     init: {{ .Values.confluent.kraftController.image.init }}
+    pullSecretRef:
+      - {{ .Values.confluent.pullSecretRef }}
   replicas: {{ .Values.confluent.kraftController.replicas }}
