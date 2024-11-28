@@ -10,6 +10,12 @@ spec:
     application: {{ .Values.confluent.controlcenter.image.application }}
     init: {{ .Values.confluent.controlcenter.image.init }}
   dataVolumeCapacity: {{ .Values.confluent.controlcenter.dataVolumeCapacity }}
+  listeners:
+    external:
+      externalAccess:
+        type: loadBalancer
+        loadBalancer:
+          domain: controlcenter.domus-server.local
   dependencies:
     schemaRegistry:
       url: {{ .Values.confluent.controlcenter.dependencies.schemaRegistry.url }}

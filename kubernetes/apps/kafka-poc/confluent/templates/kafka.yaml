@@ -10,13 +10,13 @@ spec:
     application: {{ .Values.confluent.kafka.image.application }}
     init: {{ .Values.confluent.kafka.image.init }}
   dataVolumeCapacity: {{ .Values.confluent.kafka.dataVolumeCapacity }}
-  dependencies:
-    kRaftController:
-      clusterRef:
-        name: {{ .Values.confluent.kafka.dependencies.kRaftController.clusterRef.name }}
   listeners:
     external:
       externalAccess:
         type: loadBalancer
         loadBalancer:
           domain: kafka.domus-server.local
+  dependencies:
+    kRaftController:
+      clusterRef:
+        name: {{ .Values.confluent.kafka.dependencies.kRaftController.clusterRef.name }}
