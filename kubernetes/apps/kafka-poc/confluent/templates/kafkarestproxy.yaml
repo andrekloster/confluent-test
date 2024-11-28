@@ -9,8 +9,6 @@ spec:
   image:
     application: {{ .Values.confluent.kafkaRestProxy.image.application }}
     init: {{ .Values.confluent.kafkaRestProxy.image.init }}
-    pullSecretRef:
-      - {{ .Values.confluent.pullSecretRef }}
   dependencies:
     schemaRegistry:
       url: {{ .Values.confluent.kafkaRestProxy.dependencies.schemaRegistry.url }}

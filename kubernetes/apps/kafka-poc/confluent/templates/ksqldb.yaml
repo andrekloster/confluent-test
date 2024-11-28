@@ -9,6 +9,4 @@ spec:
   image:
     application: {{ .Values.confluent.ksqlDB.image.application }}
     init: {{ .Values.confluent.ksqlDB.image.init }}
-    pullSecretRef:
-      - {{ .Values.confluent.pullSecretRef }}
   dataVolumeCapacity: {{ .Values.confluent.ksqlDB.dataVolumeCapacity }}

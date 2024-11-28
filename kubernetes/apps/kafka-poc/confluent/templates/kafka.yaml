@@ -9,8 +9,6 @@ spec:
   image:
     application: {{ .Values.confluent.kafka.image.application }}
     init: {{ .Values.confluent.kafka.image.init }}
-    pullSecretRef:
-      - {{ .Values.confluent.pullSecretRef }}
   dataVolumeCapacity: {{ .Values.confluent.kafka.dataVolumeCapacity }}
   dependencies:
     kRaftController:
