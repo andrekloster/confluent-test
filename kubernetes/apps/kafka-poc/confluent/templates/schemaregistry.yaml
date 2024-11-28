@@ -9,3 +9,10 @@ spec:
   image:
     application: {{ .Values.confluent.schemaRegistry.image.application }}
     init: {{ .Values.confluent.schemaRegistry.image.init }}
+  externalAccess:
+    type: loadBalancer
+    loadBalancer:
+      domain: schemaregistry.domus-server.local
+      port: 8081
+      externalTrafficPolicy: Cluster
+      sessionAffinity: None
