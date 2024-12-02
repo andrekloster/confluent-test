@@ -10,6 +10,11 @@ spec:
     application: {{ .Values.confluent.controlcenter.image.application }}
     init: {{ .Values.confluent.controlcenter.image.init }}
   dataVolumeCapacity: {{ .Values.confluent.controlcenter.dataVolumeCapacity }}
+  externalAccess:
+    type: nodePort
+    nodePort:
+      host: {{ .Values.confluent.controlcenter.externalAccess.nodePort.host }}
+      nodePortOffset: {{ .Values.confluent.controlcenter.externalAccess.nodePort.nodePortOffset }}
   dependencies:
     schemaRegistry:
       url: {{ .Values.confluent.controlcenter.dependencies.schemaRegistry.url }}
@@ -23,10 +28,3 @@ spec:
       - name: {{ .name }}
         url: {{ .url }}
     {{- end }}
-  externalAccess:
-    type: loadBalancer
-    loadBalancer:
-      domain: controlcenter.domus-server.de
-      port: 9021
-      externalTrafficPolicy: Cluster
-      sessionAffinity: None

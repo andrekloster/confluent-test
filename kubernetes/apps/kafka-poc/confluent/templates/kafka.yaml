@@ -13,9 +13,10 @@ spec:
   listeners:
     external:
       externalAccess:
-        type: loadBalancer
-        loadBalancer:
-          domain: kafka.domus-server.local
+        type: nodePort
+        nodePort:
+          host: {{ .Values.confluent.kafka.listeners.external.externalAccess.nodePort.host }}
+          nodePortOffset: {{ .Values.confluent.kafka.listeners.external.externalAccess.nodePort.nodePortOffset }}
   dependencies:
     kRaftController:
       clusterRef:
