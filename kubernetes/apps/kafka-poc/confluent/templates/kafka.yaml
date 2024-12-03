@@ -17,10 +17,6 @@ spec:
         nodePort:
           host: {{ .Values.confluent.kafka.listeners.external.externalAccess.nodePort.host }}
           nodePortOffset: {{ .Values.confluent.kafka.listeners.external.externalAccess.nodePort.nodePortOffset }}
-      authentication:
-        type: plain
-        jaasConfigPassThrough:
-          secretRef: credential
   dependencies:
     kRaftController:
       clusterRef:
